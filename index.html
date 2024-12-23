@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ma page d'accueil</title>
+    <style>
+      /* Styles CSS ici */
+  .popup {
+          position: fixed;
+          bottom: 20px;
+          left: 20px;
+          background-color: #0fa07c;
+          border: 1px solid #ccc;
+          padding: 20px;
+          z-index: 9999;
+          animation: fadeInUp 1s ease-in-out; /* Animation d'entrée */
+          color: white;
+          border-radius: 5px;
+      }
+
+      span {
+          cursor: pointer;
+          padding-left: 20px;
+          color: white;
+          font-weight: bold;
+          
+      }
+      @keyframes fadeInUp {
+      from {
+          opacity: 0;
+          transform: translateY(30px);
+      }
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+    </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body>
+    <div x-data="{ open: true }">
+      <div x-show="open">
+        <div id="myPopup" class="popup">Content de vous revoir ! <span x-on:click="open = ! open">Fermer</span></div>
+      </div>
+    </div>
+    <script>
+      // Sélectionner la pop-up
+      const popup = document.getElementById('myPopup');
+    
+      // Fermer la pop-up après 5 secondes
+      setTimeout(() => {
+        popup.remove() = 'none'; 
+      }, 5000); // 5000 millisecondes = 5 secondes
+    </script>
+  </body>
+</html>
